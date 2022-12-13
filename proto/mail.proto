@@ -1,3 +1,4 @@
+syntax = "proto3";
 package proto;
 
 option go_package = "mailinglist/proto";
@@ -20,3 +21,11 @@ message GetEmailBatchRequest {
 
 message EmailResponse { optional EmailEntry email_entry = 1; }
 message GetEmailBatchResponse { repeated EmailEntry email_entry = 1;}
+
+service MailingListService{
+    rpc CreateEmail(CreateEmailRequest) returns (EmailResponse) {}
+    rpc UpdateEmail(UpdateEmailRequest) returns (EmailResponse) {}
+    rpc GetEmail(GetEmailRequest) returns (EmailResponse) {}
+    rpc DeleteEmail(DeleteEmailRequest) returns (EmailResponse) {}
+    rpc GetEmailBatch(GetEmailBatchRequest) returns (GetEmailBatchResponse) {}
+}
