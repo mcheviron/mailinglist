@@ -36,7 +36,7 @@ func main() {
 	wg.Add(1)
 	go func() {
 		log.Printf("Starting JSON API server...\n")
-		jsonapi.Server(db, args.BindJson)
+		jsonapi.Serve(db, args.BindJson)
 		wg.Done()
 	}()
 	wg.Wait()

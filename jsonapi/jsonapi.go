@@ -149,7 +149,7 @@ func GetEmailBatch(db *sql.DB) http.Handler {
 	})
 }
 
-func Server(db *sql.DB, bind string) {
+func Serve(db *sql.DB, bind string) {
 	http.Handle("/email/create", CreateEmail(db))
 	http.Handle("/email/get", GetEmail(db))
 	http.Handle("/email/update", UpdateEmail(db))
